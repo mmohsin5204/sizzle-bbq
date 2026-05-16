@@ -37,7 +37,7 @@ export default function Hero() {
               </button>
               <div className="flex -space-x-3 items-center">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-10 h-10 border-2 border-white rounded-full bg-gray-200 overflow-hidden">
+                  <div key={`customer-${i}`} className="w-10 h-10 border-2 border-white rounded-full bg-gray-200 overflow-hidden">
                     <img 
                       src={`https://i.pravatar.cc/100?img=${i + 10}`} 
                       alt="Customer" 

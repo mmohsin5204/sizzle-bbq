@@ -20,7 +20,7 @@ export default function TickerBar() {
     <div className="relative w-full bg-primary text-white py-5 overflow-hidden border-y border-rose-700 z-10 shadow-lg mt-8 mb-4">
       <div className="flex animate-marquee whitespace-nowrap hover:[animation-play-state:paused] cursor-default">
         {items.map((item, idx) => (
-          <div key={idx} className="flex items-center px-10">
+          <div key={`${item}-${idx}`} className="flex items-center px-10">
             <span className="text-sm font-bold uppercase tracking-widest flex items-center gap-2">
               {item}
             </span>

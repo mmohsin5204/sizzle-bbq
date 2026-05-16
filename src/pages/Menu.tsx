@@ -35,9 +35,9 @@ export default function MenuPage() {
         {/* Filters & Search */}
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 mb-12">
           <div className="flex flex-wrap justify-center lg:justify-start gap-3">
-            {categories.map((cat) => (
+            {categories.map((cat, idx) => (
               <button
-                key={cat}
+                key={`cat-${idx}`}
                 onClick={() => setActiveCategory(cat)}
                 className={`px-6 py-2.5 rounded-full font-bold transition-all ${
                   activeCategory === cat 

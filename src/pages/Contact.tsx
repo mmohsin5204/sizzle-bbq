@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from 'lucide-react';
+import { Clock, Mail, MapPin, MessageCircle, Phone, Send } from 'lucide-react';
 
 export default function ContactPage() {
   return (
@@ -30,7 +30,7 @@ export default function ContactPage() {
             { icon: MapPin, title: "Location", info: "123 BBQ Avenue, NY", subInfo: "Get Directions" }
           ].map((item, idx) => (
             <motion.div
-              key={idx}
+              key={`contact-item-${idx}`}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: idx * 0.1 }}

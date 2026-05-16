@@ -3,7 +3,7 @@ import Hero from '../components/Hero';
 import TickerBar from '../components/TickerBar';
 import Testimonials from '../components/Testimonials';
 import { menuData } from '../data/menuData';
-import { Star, ArrowRight } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {

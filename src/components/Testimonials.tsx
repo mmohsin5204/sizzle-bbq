@@ -50,7 +50,7 @@ export default function Testimonials() {
               <div>
                 <div className="flex text-yellow-400 mb-6">
                    {[...Array(t.rating)].map((_, i) => (
-                     <Star key={i} size={16} fill="currentColor" />
+                     <Star key={`${t.id}-star-${i}`} size={16} fill="currentColor" />
                    ))}
                 </div>
                 <p className="text-gray-600 mb-8 italic text-lg leading-relaxed">"{t.content}"</p>

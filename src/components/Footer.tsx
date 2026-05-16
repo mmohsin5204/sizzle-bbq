@@ -1,4 +1,4 @@
-import { Flame, Instagram, Facebook, Twitter, Phone, Mail, MapPin } from 'lucide-react';
+import { Flame, Instagram, Facebook, Twitter, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -19,7 +19,7 @@ export default function Footer() {
              </p>
              <div className="flex space-x-4">
                 {[Instagram, Facebook, Twitter].map((Icon, idx) => (
-                  <a key={idx} href="#" className="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-gray-500 hover:text-primary hover:border-primary transition-all">
+                  <a key={`social-${idx}`} href="#" className="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-gray-500 hover:text-primary hover:border-primary transition-all">
                     <Icon size={20} />
                   </a>
                 ))}
@@ -29,8 +29,8 @@ export default function Footer() {
           <div>
              <h4 className="text-lg font-bold text-gray-900 mb-8 flex items-center uppercase tracking-wider">Useful Links</h4>
              <ul className="space-y-4">
-                {['Home', 'Menu', 'About Us', 'Catering', 'Careers', 'Privacy Policy'].map(link => (
-                  <li key={link}>
+                {['Home', 'Menu', 'About Us', 'Catering', 'Careers', 'Privacy Policy'].map((link, idx) => (
+                  <li key={`useful-${idx}`}>
                     <a href="#" className="text-gray-500 hover:text-primary transition-colors">{link}</a>
                   </li>
                 ))}
@@ -40,8 +40,8 @@ export default function Footer() {
           <div>
              <h4 className="text-lg font-bold text-gray-900 mb-8 flex items-center uppercase tracking-wider">Top Menu</h4>
              <ul className="space-y-4">
-                {['Flame-Grilled Burgers', 'Skewered Kebabs', 'Chicken Tikka', 'Masala Fries', 'Mint Margaritas', 'Platter Specials'].map(link => (
-                  <li key={link}>
+                {['Flame-Grilled Burgers', 'Skewered Kebabs', 'Chicken Tikka', 'Masala Fries', 'Mint Margaritas', 'Platter Specials'].map((link, idx) => (
+                  <li key={`top-menu-${idx}`}>
                     <a href="#" className="text-gray-500 hover:text-primary transition-colors">{link}</a>
                   </li>
                 ))}

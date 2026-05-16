@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ShieldCheck, Zap, Heart, Utensils, Award, Users } from 'lucide-react';
+import { ShieldCheck, Award, Users } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -79,7 +79,7 @@ export default function AboutPage() {
               { icon: Users, title: "Community", desc: "We support local farmers and give back to the neighborhoods we serve." }
             ].map((feature, idx) => (
               <motion.div
-                key={idx}
+                key={`feature-${idx}`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
