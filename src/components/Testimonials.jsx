@@ -59,10 +59,14 @@ export default function Testimonials() {
               <div className="flex items-center space-x-4 border-t pt-6">
                 <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden flex-shrink-0">
                   <img 
-                    src={`https://i.pravatar.cc/100?img=${t.id + 20}`} 
+                    src={`https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&background=random&size=100`} 
                     alt={t.name}
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
+                    onError={(e) => { 
+                      e.target.onerror = null 
+                      e.target.src = 'https://ui-avatars.com/api/?name=User&background=cccccc&color=333&size=100' 
+                    }}
                   />
                 </div>
                 <div>

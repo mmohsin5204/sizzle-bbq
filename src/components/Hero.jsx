@@ -36,13 +36,22 @@ export default function Hero() {
                 <ArrowRight size={20} />
               </button>
               <div className="flex -space-x-3 items-center">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={`customer-${i}`} className="w-10 h-10 border-2 border-white rounded-full bg-gray-200 overflow-hidden">
+                {[
+                  { id: 11, name: "Ahmed Khan" },
+                  { id: 12, name: "Sara Ali" },
+                  { id: 13, name: "Omar Sheikh" },
+                  { id: 14, name: "Fatima Malik" }
+                ].map((customer) => (
+                  <div key={`customer-${customer.id}`} className="w-10 h-10 border-2 border-white rounded-full bg-gray-200 overflow-hidden">
                     <img 
-                      src={`https://i.pravatar.cc/100?img=${i + 10}`} 
+                      src={`https://ui-avatars.com/api/?name=${encodeURIComponent(customer.name)}&background=random&size=100`} 
                       alt="Customer" 
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
+                      onError={(e) => { 
+                        e.target.onerror = null 
+                        e.target.src = 'https://ui-avatars.com/api/?name=User&background=cccccc&color=333&size=100' 
+                      }}
                     />
                   </div>
                 ))}
