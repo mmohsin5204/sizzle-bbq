@@ -29,3 +29,40 @@
 .text-stroke {
   -webkit-text-stroke: 1px currentColor;
 }
+
+/* Mobile centering for featured section */
+@media (max-width: 768px) {
+  .featured-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .featured-section > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .featured-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 0 !important;
+  }
+
+  .featured-header > div {
+    text-align: center;
+  }
+
+  .featured-header a {
+    margin-top: 1.5rem;
+  }
+}
