@@ -1,41 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { menuData } from '../data/menuData';
 import { ShoppingCart, Star, Search } from 'lucide-react';
-import { useCart } from '../context/CartContext';
-import { useLocation } from 'react-router-dom';
 
 const categories = ['All', 'Burgers', 'Tikka', 'Kebabs', 'Fries', 'Drinks'];
 
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [addedItemId, setAddedItemId] = useState(null);
-  const { addToCart } = useCart();
-  const location = useLocation();
-
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const category = searchParams.get('category');
-    if (category) {
-      setActiveCategory(category);
-      setSearchQuery('');
-    }
-  }, [location.search]);
-
-  const handleAddToCart = (item) => {
-    addToCart(item);
-    setAddedItemId(item.id);
-    setTimeout(() => setAddedItemId(null), 1500);
-  };
 
   const filteredMenu = menuData.filter(item => {
-    const matchesSearch = searchQuery.trim() === '' ||
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.category.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = activeCategory === 'All' || item.category === activeCategory;
-    return matchesSearch && matchesCategory;
+    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          item.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
   });
 
   return (
@@ -60,7 +38,7 @@ export default function MenuPage() {
             {categories.map((cat, idx) => (
               <button
                 key={`cat-${idx}`}
-                onClick={() => { setActiveCategory(cat); setSearchQuery(''); }}
+                onClick={() => setActiveCategory(cat)}
                 className={`px-6 py-2.5 rounded-full font-bold transition-all ${
                   activeCategory === cat 
                     ? 'bg-primary text-white shadow-lg shadow-rose-200' 
@@ -72,23 +50,15 @@ export default function MenuPage() {
             ))}
           </div>
           
-          <div className="relative w-full lg:w-96 flex flex-col sm:flex-row gap-3">
-            <div className="relative flex-1">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
-              <input 
-                type="text"
-                placeholder="Search your favorite BBQ..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 rounded-full bg-white border border-gray-200 focus:border-primary outline-none transition-all shadow-sm"
-              />
-            </div>
-            <button 
-              onClick={() => {}} 
-              className="sm:absolute sm:right-3 sm:top-1/2 sm:-translate-y-1/2 bg-primary text-white px-4 py-3 sm:py-1.5 rounded-full text-sm font-bold hover:bg-rose-700 transition-all w-full sm:w-auto" 
-            > 
-              Search 
-            </button> 
+          <div className="relative w-full lg:w-96">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+            <input 
+              type="text"
+              placeholder="Search your favorite BBQ..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 rounded-full bg-white border border-gray-200 focus:border-primary outline-none transition-all shadow-sm"
+            />
           </div>
         </div>
 
@@ -127,14 +97,7 @@ export default function MenuPage() {
                   
                   <div className="flex justify-between items-center">
                     <span className="text-xl font-extrabold text-primary">{item.price}</span>
-                    <button 
-                      onClick={() => handleAddToCart(item)}
-                      className={`p-3 rounded-2xl transition-all shadow-sm ${
-                        addedItemId === item.id 
-                          ? 'bg-green-500 text-white' 
-                          : 'bg-gray-100 text-gray-900 hover:bg-primary hover:text-white'
-                      }`}
-                    >
+                    <button className="p-3 bg-gray-100 text-gray-900 rounded-2xl hover:bg-primary hover:text-white transition-all shadow-sm">
                       <ShoppingCart size={20} />
                     </button>
                   </div>

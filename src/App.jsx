@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import MenuPage from './pages/Menu';
 import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
-import Checkout from './pages/Checkout';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 
@@ -32,7 +31,6 @@ export default function App() {
             <Route path="/menu" element={<MenuPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/checkout" element={<Checkout />} />
           </Routes>
         </main>
         <Footer />

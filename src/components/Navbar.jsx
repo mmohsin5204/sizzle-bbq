@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Flame, MessageCircle, ShoppingCart } from 'lucide-react';
+import { Menu, X, Flame, MessageCircle } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
-import CartSidebar from './CartSidebar';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -15,8 +13,6 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
-  const { cartCount } = useCart();
   const location = useLocation();
 
   useEffect(() => {
@@ -69,21 +65,8 @@ export default function Navbar() {
                 </Link>
               </motion.div>
             ))}
-            <motion.button
-              onClick={() => setCartOpen(true)}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="relative p-2 text-gray-700 hover:text-primary transition-colors"
-            >
-              <ShoppingCart size={24} />
-              {cartCount > 0 && (
-                <span className="absolute top-0 right-0 bg-primary text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
-                  {cartCount}
-                </span>
-              )}
-            </motion.button>
             <motion.a
-              href="https://wa.me/923001234567?text=Hi%20Sizzle%20BBQ!%20I%20want%20to%20place%20an%20order%20from%20your%20menu%20%F0%9F%94%A5"
+              href="https://wa.me/1234567890"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -129,11 +112,8 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <button onClick={() => { setIsOpen(false); setCartOpen(true); }} className="flex items-center space-x-2 text-xl font-medium text-gray-800">
-                <ShoppingCart size={22} /> <span>Cart {cartCount > 0 && `(${cartCount})`}</span>
-              </button>
               <a
-                href="https://wa.me/923001234567?text=Hi%20Sizzle%20BBQ!%20I%20want%20to%20place%20an%20order%20from%20your%20menu%20%F0%9F%94%A5"
+                href="https://wa.me/1234567890"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-primary text-white px-6 py-3 rounded-xl font-bold flex items-center justify-center space-x-2 shadow-lg"
@@ -145,7 +125,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-      <CartSidebar isOpen={cartOpen} onClose={() => setCartOpen(false)} />
     </nav>
   );
 }
