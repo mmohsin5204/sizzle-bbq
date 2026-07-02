@@ -15,14 +15,14 @@ export default function Home() {
       <TickerBar />
       
       {/* Featured Section */}
-      <section className="py-10 md:py-24 bg-white featured-section">
+      <section className="py-6 md:py-24 bg-white featured-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-row justify-between items-end mb-6 md:mb-12">
+          <div className="flex flex-row justify-between items-center mb-4 md:mb-12">
             <div>
-              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Featured Classics</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-gray-900">Our <span className="text-primary">Best Sellers</span></h2>
+              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block hidden sm:block">Featured Classics</span>
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-display font-extrabold text-gray-900">Our <span className="text-primary">Best Sellers</span></h2>
             </div>
-            <Link to="/menu" className="text-primary font-bold flex items-center space-x-2 hover:translate-x-1 transition-transform text-sm md:text-base whitespace-nowrap ml-2">
+            <Link to="/menu" className="text-primary font-bold flex items-center space-x-1 hover:translate-x-1 transition-transform text-xs sm:text-sm md:text-base whitespace-nowrap">
               <span>View Full Menu</span>
               <ArrowRight size={20} />
             </Link>
@@ -57,7 +57,7 @@ export default function Home() {
       <Testimonials />
       
       {/* Short About Preview */}
-      <section className="py-10 md:py-24 bg-white border-t">
+      <section className="py-6 md:py-24 bg-white border-t">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
              <div className="order-2 lg:order-1">
