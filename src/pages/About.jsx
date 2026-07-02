@@ -27,7 +27,7 @@ export default function AboutPage() {
       {/* Content */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+          <div className="grid grid-cols-2 lg:grid-cols-2 gap-6 items-center mb-24">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -61,7 +61,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative rounded-[3rem] overflow-hidden shadow-2xl"
+              className="relative rounded-[3rem] overflow-hidden shadow-2xl min-h-[180px]"
             >
               <img 
                 src="https://binzahidmarket.com/cdn/shop/files/premium-cylinder-charcoal-bbq-smoker-grill-with-wooden-handle-948.png?v=1777977610&width=1000" 
@@ -72,7 +72,7 @@ export default function AboutPage() {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-3 gap-12">
             {[
               { icon: ShieldCheck, title: "Quality First", desc: "No frozen patties, no artificial smoke. Just real wood and fresh meat." },
               { icon: Award, title: "Award Winning", desc: "Voted Best BBQ Fast Food three years in a row by Flavor Magazine." },

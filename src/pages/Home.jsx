@@ -28,7 +28,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredItems.map((item) => (
               <motion.div
                 key={item.id}
@@ -59,14 +59,14 @@ export default function Home() {
       {/* Short About Preview */}
       <section className="py-24 bg-white border-t">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-2 lg:grid-cols-2 gap-6 items-center">
              <div className="order-2 lg:order-1">
                 <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Our Story</span>
                 <h2 className="text-4xl font-display font-extrabold text-gray-900 mb-6">Mastering the <span className="text-primary italic">Grill</span></h2>
                 <p className="text-gray-600 mb-8 text-lg">We started Sizzle BBQ with a simple mission: to bring authentic pit BBQ flavors to the fast-casual scene. No compromises, just real fire and smoke.</p>
                 <Link to="/about" className="inline-block bg-gray-900 text-white px-8 py-4 rounded-full font-bold hover:bg-black transition-all">Learn More About Us</Link>
              </div>
-             <div className="order-1 lg:order-2 h-[400px] lg:h-[500px] rounded-[3rem] overflow-hidden shadow-2xl">
+             <div className="order-1 lg:order-2 h-[200px] sm:h-[300px] lg:h-[500px] rounded-[3rem] overflow-hidden shadow-2xl">
                 <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=1200" alt="BBQ Grilling" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
              </div>
           </div>
