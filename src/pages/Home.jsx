@@ -17,12 +17,12 @@ export default function Home() {
       {/* Featured Section */}
       <section className="py-10 md:py-24 bg-white featured-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-6 md:mb-12 featured-header">
+          <div className="flex flex-row justify-between items-end mb-6 md:mb-12">
             <div>
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Featured Classics</span>
-              <h2 className="text-4xl font-display font-extrabold text-gray-900">Our <span className="text-primary">Best Sellers</span></h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-gray-900">Our <span className="text-primary">Best Sellers</span></h2>
             </div>
-            <Link to="/menu" className="text-primary font-bold flex items-center space-x-2 hover:translate-x-1 transition-transform">
+            <Link to="/menu" className="text-primary font-bold flex items-center space-x-2 hover:translate-x-1 transition-transform text-sm md:text-base whitespace-nowrap ml-2">
               <span>View Full Menu</span>
               <ArrowRight size={20} />
             </Link>
