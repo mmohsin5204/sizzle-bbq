@@ -14,36 +14,34 @@ export default function Home() {
       <Hero />
       <TickerBar />
       
-      {/* Featured Section */}
-      <section className="py-6 md:py-24 bg-white featured-section">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-row justify-between items-center mb-4 md:mb-12">
-            <div>
-              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block hidden sm:block">Featured Classics</span>
-              <h2 className="text-xl sm:text-2xl md:text-4xl font-display font-extrabold text-gray-900">Our <span className="text-primary">Best Sellers</span></h2>
-            </div>
-            <Link to="/menu" className="text-primary font-bold flex items-center space-x-1 hover:translate-x-1 transition-transform text-xs sm:text-sm md:text-base whitespace-nowrap">
+{/* Featured Section */}
+      <section className="pt-4 pb-6 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex flex-row justify-between items-center mb-3 md:mb-12">
+            <h2 className="text-lg sm:text-2xl md:text-4xl font-display font-extrabold text-gray-900">
+              Our <span className="text-primary">Best Sellers</span>
+            </h2>
+            <Link to="/menu" className="text-primary font-bold flex items-center gap-1 text-xs sm:text-sm md:text-base whitespace-nowrap hover:translate-x-1 transition-transform">
               <span>View Full Menu</span>
-              <ArrowRight size={20} />
+              <ArrowRight size={14} />
             </Link>
           </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-8">
             {featuredItems.map((item) => (
               <motion.div
                 key={item.id}
                 whileHover={{ y: -10 }}
-                className="bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 group"
+                className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm group"
               >
-                <div className="h-32 sm:h-40 md:h-48 overflow-hidden">
+                <div className="h-28 sm:h-36 md:h-48 overflow-hidden">
                   <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
                 </div>
-                <div className="p-3 sm:p-4 md:p-6">
-                  <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 mb-2">{item.name}</h3>
+                <div className="p-2 sm:p-3 md:p-6">
+                  <h3 className="text-xs sm:text-sm md:text-lg font-bold text-gray-900 mb-1 leading-tight">{item.name}</h3>
                   <div className="flex justify-between items-center">
-                    <span className="text-primary font-extrabold">{item.price}</span>
+                    <span className="text-xs sm:text-sm md:text-base text-primary font-extrabold">{item.price}</span>
                     <div className="flex items-center text-yellow-400">
-                      <Star size={14} fill="currentColor" />
+                      <Star size={12} fill="currentColor" />
                       <span className="text-xs font-bold text-gray-900 ml-1">4.9</span>
                     </div>
                   </div>
