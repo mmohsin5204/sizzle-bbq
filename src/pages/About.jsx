@@ -27,7 +27,7 @@ export default function AboutPage() {
       {/* Content */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-2 gap-6 items-center mb-24">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center mb-24">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -72,7 +72,7 @@ export default function AboutPage() {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
             {[
               { icon: ShieldCheck, title: "Quality First", desc: "No frozen patties, no artificial smoke. Just real wood and fresh meat." },
               { icon: Award, title: "Award Winning", desc: "Voted Best BBQ Fast Food three years in a row by Flavor Magazine." },

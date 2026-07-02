@@ -28,18 +28,18 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {featuredItems.map((item) => (
               <motion.div
                 key={item.id}
                 whileHover={{ y: -10 }}
                 className="bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 group"
               >
-                <div className="h-48 overflow-hidden">
+                <div className="h-32 sm:h-40 md:h-48 overflow-hidden">
                   <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.name}</h3>
+                <div className="p-3 sm:p-4 md:p-6">
+                  <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 mb-2">{item.name}</h3>
                   <div className="flex justify-between items-center">
                     <span className="text-primary font-extrabold">{item.price}</span>
                     <div className="flex items-center text-yellow-400">
@@ -59,7 +59,7 @@ export default function Home() {
       {/* Short About Preview */}
       <section className="py-24 bg-white border-t">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-2 gap-6 items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
              <div className="order-2 lg:order-1">
                 <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Our Story</span>
                 <h2 className="text-4xl font-display font-extrabold text-gray-900 mb-6">Mastering the <span className="text-primary italic">Grill</span></h2>

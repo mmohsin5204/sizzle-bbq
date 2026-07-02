@@ -1,13 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { menuData } from '../data/menuData';
 import { ShoppingCart, Star, Search } from 'lucide-react';
+import { useCart } from '../context/CartContext';
+import { useLocation } from 'react-router-dom';
 
 const categories = ['All', 'Burgers', 'Tikka', 'Kebabs', 'Fries', 'Drinks'];
 
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const { addToCart } = useCart();
+  const location = useLocation();
+  const [addedItemId, setAddedItemId] = useState(null);
 
   const filteredMenu = menuData.filter(item => {
     const matchesCategory = activeCategory === 'All' || item.category === activeCategory;
@@ -15,6 +20,18 @@ export default function MenuPage() {
                           item.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const category = params.get('category');
+    if (category) setActiveCategory(category);
+  }, [location.search]);
+
+  const handleAddToCart = (item) => {
+    addToCart(item);
+    setAddedItemId(item.id);
+    setTimeout(() => setAddedItemId(null), 1500);
+  };
 
   return (
     <div className="pt-32 pb-24 bg-gray-50 min-h-screen">
@@ -65,7 +82,7 @@ export default function MenuPage() {
         {/* Menu Grid */}
         <motion.div 
           layout
-          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
         >
           <AnimatePresence mode="popLayout">
             {filteredMenu.map((item) => (
@@ -78,7 +95,7 @@ export default function MenuPage() {
                 transition={{ duration: 0.3 }}
                 className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100 group"
               >
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-36 sm:h-44 md:h-56 overflow-hidden">
                   <img 
                     src={item.image} 
                     alt={item.name}
@@ -91,13 +108,20 @@ export default function MenuPage() {
                   </div>
                 </div>
                 
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 leading-tight mb-2">{item.name}</h3>
+                <div className="p-3 sm:p-4 md:p-6">
+                  <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 leading-tight mb-2">{item.name}</h3>
                   <p className="text-gray-500 text-sm mb-6 line-clamp-2">{item.description}</p>
                   
                   <div className="flex justify-between items-center">
-                    <span className="text-xl font-extrabold text-primary">{item.price}</span>
-                    <button className="p-3 bg-gray-100 text-gray-900 rounded-2xl hover:bg-primary hover:text-white transition-all shadow-sm">
+                    <span className="text-base sm:text-lg md:text-xl font-extrabold text-primary">{item.price}</span>
+                    <button
+                      onClick={() => handleAddToCart(item)}
+                      className={`p-3 rounded-2xl transition-all shadow-sm ${
+                        addedItemId === item.id
+                          ? 'bg-green-500 text-white'
+                          : 'bg-gray-100 text-gray-900 hover:bg-primary hover:text-white'
+                      }`}
+                    >
                       <ShoppingCart size={20} />
                     </button>
                   </div>
