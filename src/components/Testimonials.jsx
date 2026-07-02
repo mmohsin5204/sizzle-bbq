@@ -4,9 +4,9 @@ import { Quote, Star } from 'lucide-react';
 
 export default function Testimonials() {
   return (
-    <section id="reviews" className="py-24 bg-gray-50 overflow-hidden">
+    <section id="reviews" className="py-10 md:py-24 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 space-y-4 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-16 space-y-4 md:space-y-0">
           <div className="max-w-xl">
              <motion.span 
                initial={{ opacity: 0 }}
@@ -33,7 +33,7 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
           {testimonials.map((t, idx) => (
             <motion.div
               key={t.id}

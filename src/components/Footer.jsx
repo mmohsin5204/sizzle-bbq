@@ -3,9 +3,9 @@ import { Flame, Instagram, Facebook, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 pt-24 pb-12 border-t">
+    <footer className="bg-gray-50 pt-10 md:pt-24 pb-12 border-t">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-16">
           <div className="col-span-1 lg:col-span-1">
              <div className="flex items-center space-x-2 mb-8">
                 <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-rose-100">

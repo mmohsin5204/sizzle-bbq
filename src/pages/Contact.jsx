@@ -23,7 +23,7 @@ export default function ContactPage() {
           <p className="text-gray-500 max-w-2xl mx-auto text-lg">Whether you're craving for BBQ or have a question about our ingredients, reach out to us!</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 mb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 mb-10 md:mb-24">
           {[
             { icon: Phone, title: "Phone", info: "+1 (234) 567 8910", subInfo: "Mon-Sun, 11am-12pm" },
             { icon: Mail, title: "Email", info: "hello@sizzlebbq.com", subInfo: "24/7 Support" },
@@ -46,7 +46,7 @@ export default function ContactPage() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
